@@ -65,12 +65,19 @@
         overflow: hidden;
 
         border-radius: 5% 5% 30% 5%;
+        @media (min-width: 1024px) {
+            width: 70vw;
+            padding: 3rem;
+        }
         .entries_container {
             display: flex;
             justify-content: space-between;
             gap: 0.2rem;
 
             color: $smokey_grey;
+            @media (min-width: 1024px) {
+                justify-content: space-around;
+            }
             .entry {
                 display: flex;
                 flex-direction: column;
@@ -78,6 +85,9 @@
                 justify-content: center;
                 label {
                     font-size: 12px;
+                    @media (min-width: 1024px) {
+                        font-size: 2rem;
+                    }
                 }
                 input[type='number'] {
                     /* hide  number input arrows */
@@ -95,6 +105,11 @@
                     border-radius: 8px;
                     border: 1px solid $light_grey;
                     outline: none;
+                    @media (min-width: 1024px) {
+                        font-size: 2rem;
+                        width: 120px;
+                        height: 60px;
+                    }
 
                     &:focus {
                         outline: 1px solid $purple;
@@ -109,8 +124,10 @@
         }
         .divider_container {
             position: relative;
+            width: auto;
             .hr {
                 height: 1px;
+                width: 100%;
                 background-color: $light_grey;
             }
             .img_container {
@@ -137,6 +154,10 @@
                 img {
                     width: 30px;
                 }
+                @media (min-width: 1024px) {
+                    left: 98%;
+                    transform: translate(-50%, -50%);
+                }
             }
         }
         .results {
@@ -144,10 +165,16 @@
             font-weight: 800;
             span {
                 font-size: 3rem;
+                @media (min-width: 1024px) {
+                    font-size: 7rem;
+                }
             }
             .line {
                 color: $purple;
                 padding-right: 0.5rem;
+                @media (min-width: 1024px) {
+                    padding-right: 1.5rem;
+                }
             }
         }
     }
