@@ -58,7 +58,7 @@
 
         display: flex;
         flex-direction: column;
-        gap: 3rem;
+        gap: 2.4rem;
 
         width: 350px;
         padding: 2rem;
@@ -67,7 +67,7 @@
         border-radius: 5% 5% 30% 5%;
         @media (min-width: 1024px) {
             width: 70vw;
-            padding: 3rem;
+            padding: 1rem 1rem 1rem 4rem;
         }
         .entries_container {
             display: flex;
@@ -76,7 +76,8 @@
 
             color: $smokey_grey;
             @media (min-width: 1024px) {
-                justify-content: space-around;
+                justify-content: flex-start;
+                gap: 1rem;
             }
             .entry {
                 display: flex;
@@ -86,7 +87,7 @@
                 label {
                     font-size: 12px;
                     @media (min-width: 1024px) {
-                        font-size: 2rem;
+                        font-size: 1rem;
                     }
                 }
                 input[type='number'] {
@@ -106,9 +107,9 @@
                     border: 1px solid $light_grey;
                     outline: none;
                     @media (min-width: 1024px) {
-                        font-size: 2rem;
-                        width: 120px;
-                        height: 60px;
+                        font-size: 1rem;
+                        width: 100px;
+                        height: 56px;
                     }
 
                     &:focus {
@@ -146,6 +147,7 @@
                 align-items: center;
 
                 transition: all 0.3s ease;
+
                 &:hover {
                     background-color: $off_black;
                     cursor: pointer;
@@ -155,7 +157,7 @@
                     width: 30px;
                 }
                 @media (min-width: 1024px) {
-                    left: 98%;
+                    left: 96%;
                     transform: translate(-50%, -50%);
                 }
             }
@@ -166,7 +168,7 @@
             span {
                 font-size: 3rem;
                 @media (min-width: 1024px) {
-                    font-size: 7rem;
+                    font-size: 3.5rem;
                 }
             }
             .line {
