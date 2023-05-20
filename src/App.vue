@@ -1,40 +1,65 @@
-<script setup></script>
+<script setup>
+import { ref } from 'vue';
+
+const userDay = ref('');
+const userMonth = ref('');
+const userYear = ref('');
+
+const resultDay = ref('--');
+const resultMonth = ref('--');
+const resultYear = ref('--');
+
+const clickHandle = () => {
+    let currentDate_milliSecond = new Date().getTime();
+    let userDate_milliSecond = new Date(userYear.value, userMonth.value - 1, userDay.value).getTime();
+    let diff_milliSecond = currentDate_milliSecond - userDate_milliSecond;
+    let diff_String = new Date(diff_milliSecond);
+
+    resultYear.value = Math.abs(diff_String.getFullYear() - 1970);
+    resultMonth.value = diff_String.getMonth();
+    resultDay.value = diff_String.getDate();
+
+    userDay.value = '';
+    userMonth.value = '';
+    userYear.value = '';
+};
+</script>
 <template>
     <div class="app">
         <main class="main">
             <section class="entries_container">
                 <div class="entry">
                     <label for="day">DAY</label>
-                    <input type="number" placeholder="DD" id="day" />
+                    <input type="number" v-model="userDay" placeholder="DD" id="day" />
                 </div>
                 <div class="entry">
                     <label for="mounth">MONTH</label>
-                    <input type="number" placeholder="MM" id="month" />
+                    <input type="number" v-model="userMonth" placeholder="MM" id="month" />
                 </div>
                 <div class="entry">
                     <label for="year">YEAR</label>
-                    <input type="number" placeholder="YYYY" id="year" />
+                    <input type="number" v-model="userYear" placeholder="YYYY" id="year" />
                 </div>
             </section>
 
             <section class="divider_container">
                 <div class="hr"></div>
-                <div class="img_container">
+                <div class="img_container" @click="clickHandle">
                     <img src="./assets/images/icon-arrow.svg" alt="arrow" />
                 </div>
             </section>
 
             <section class="results">
                 <div class="result">
-                    <span class="line" id="year">--</span>
+                    <span class="line" id="year">{{ resultYear }}</span>
                     <span>years</span>
                 </div>
                 <div class="result">
-                    <span class="line" id="months">--</span>
+                    <span class="line" id="months">{{ resultMonth }}</span>
                     <span>months</span>
                 </div>
                 <div class="result">
-                    <span class="line" id="days">--</span>
+                    <span class="line" id="days">{{ resultDay }}</span>
                     <span>days</span>
                 </div>
             </section>
