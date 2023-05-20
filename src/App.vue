@@ -16,13 +16,14 @@
                     <input type="number" placeholder="YYYY" id="year" />
                 </div>
             </section>
-            <!-- here -->
+
             <section class="divider_container">
                 <div class="hr"></div>
                 <div class="img_container">
                     <img src="./assets/images/icon-arrow.svg" alt="arrow" />
                 </div>
             </section>
+
             <section class="results">
                 <div class="result">
                     <span class="line" id="year">--</span>
@@ -46,7 +47,7 @@
     background-color: $off_white;
 
     min-height: 100vh;
-    padding: 1rem 0;
+    padding: 1rem;
 
     display: flex;
     flex-direction: column;
@@ -62,12 +63,13 @@
 
         width: 350px;
         padding: 2rem;
+
         overflow: hidden;
 
         border-radius: 5% 5% 30% 5%;
         @media (min-width: 1024px) {
             width: 70vw;
-            padding: 1rem 1rem 1rem 4rem;
+            padding: 1rem 4rem 1rem;
         }
         .entries_container {
             display: flex;
@@ -125,7 +127,7 @@
         }
         .divider_container {
             position: relative;
-            width: auto;
+            width: 100%;
             .hr {
                 height: 1px;
                 width: 100%;
@@ -157,8 +159,11 @@
                     width: 30px;
                 }
                 @media (min-width: 1024px) {
-                    left: 96%;
+                    /*  left: 97%; */
                     transform: translate(-50%, -50%);
+                    left: 100%;
+
+                    transform: translateY(-50%, 0);
                 }
             }
         }
