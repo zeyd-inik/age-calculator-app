@@ -9,7 +9,24 @@ const resultDay = ref('--');
 const resultMonth = ref('--');
 const resultYear = ref('--');
 
+const isError = ref(false);
+
 const clickHandle = () => {
+    const currentYear = new Date().getFullYear();
+
+    if (
+        userDay.value === '' ||
+        userMonth.value === '' ||
+        userYear.value === '' ||
+        userDay.value > 31 ||
+        userMonth.value > 12 ||
+        currentYear < userYear.value
+    ) {
+        isError.value = true;
+        return;
+    }
+
+    isError.value = false;
     let currentDate_milliSecond = new Date().getTime();
     let userDate_milliSecond = new Date(userYear.value, userMonth.value - 1, userDay.value).getTime();
     let diff_milliSecond = currentDate_milliSecond - userDate_milliSecond;
@@ -18,10 +35,6 @@ const clickHandle = () => {
     resultYear.value = Math.abs(diff_String.getFullYear() - 1970);
     resultMonth.value = diff_String.getMonth();
     resultDay.value = diff_String.getDate();
-
-    userDay.value = '';
-    userMonth.value = '';
-    userYear.value = '';
 };
 </script>
 <template>
@@ -29,18 +42,19 @@ const clickHandle = () => {
         <main class="main">
             <section class="entries_container">
                 <div class="entry">
-                    <label for="day">DAY</label>
-                    <input type="number" v-model="userDay" placeholder="DD" id="day" />
+                    <label :class="{ error: isError }" for="day">DAY</label>
+                    <input :class="{ error: isError }" type="number" v-model="userDay" placeholder="DD" id="day" />
                 </div>
                 <div class="entry">
-                    <label for="mounth">MONTH</label>
-                    <input type="number" v-model="userMonth" placeholder="MM" id="month" />
+                    <label :class="{ error: isError }" for="mounth">MONTH</label>
+                    <input :class="{ error: isError }" type="number" v-model="userMonth" placeholder="MM" id="month" />
                 </div>
                 <div class="entry">
-                    <label for="year">YEAR</label>
-                    <input type="number" v-model="userYear" placeholder="YYYY" id="year" />
+                    <label :class="{ error: isError }" for="year">YEAR</label>
+                    <input :class="{ error: isError }" type="number" v-model="userYear" placeholder="YYYY" id="year" />
                 </div>
             </section>
+            <p v-if="isError" class="error_message">Must be a valid date</p>
 
             <section class="divider_container">
                 <div class="hr"></div>
@@ -116,6 +130,9 @@ const clickHandle = () => {
                     @media (min-width: 1024px) {
                         font-size: 1rem;
                     }
+                    &.error {
+                        color: $light_red;
+                    }
                 }
                 input[type='number'] {
                     /* hide  number input arrows */
@@ -133,6 +150,9 @@ const clickHandle = () => {
                     border-radius: 8px;
                     border: 1px solid $light_grey;
                     outline: none;
+                    &.error {
+                        border-color: $light_red;
+                    }
                     @media (min-width: 1024px) {
                         font-size: 1rem;
                         width: 100px;
@@ -149,6 +169,13 @@ const clickHandle = () => {
                     }
                 }
             }
+        }
+        .error_message {
+            color: $light_red;
+            font-weight: 400;
+            font-style: italic;
+            font-size: 12px;
+            transform: translateY(-30px);
         }
         .divider_container {
             position: relative;
