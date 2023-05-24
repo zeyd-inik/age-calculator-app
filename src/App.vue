@@ -65,7 +65,7 @@ const clickHandle = () => {
 
             <section class="results">
                 <div class="result">
-                    <span class="line" id="year">{{ resultYear }}</span>
+                    <span class="line" id="year">{{ resultDay }}</span>
                     <span>years</span>
                 </div>
                 <div class="result">
@@ -73,7 +73,7 @@ const clickHandle = () => {
                     <span>months</span>
                 </div>
                 <div class="result">
-                    <span class="line" id="days">{{ resultDay }}</span>
+                    <span class="line" id="days">{{ resultYear }}</span>
                     <span>days</span>
                 </div>
             </section>
@@ -105,7 +105,7 @@ const clickHandle = () => {
 
         overflow: hidden;
 
-        border-radius: 5% 5% 30% 5%;
+        border-radius: 10px 10px 30% 10px;
         @media (min-width: 1024px) {
             width: 70vw;
             padding: 1rem 4rem 1rem;
