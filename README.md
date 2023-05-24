@@ -1,3 +1,11 @@
+## Overview
+
+-   Live Site URL: [Live Site](https://age-calculator-app-ivory.vercel.app/)
+
+### Screenshot
+
+![](./src/assets/images/calculator-app.png)
+
 # age-calculator-app
 
 This template should help get you started developing with Vue 3 in Vite.
