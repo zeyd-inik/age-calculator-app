@@ -65,7 +65,7 @@ const clickHandle = () => {
 
             <section class="results">
                 <div class="result">
-                    <span class="line" id="year">{{ resultDay }}</span>
+                    <span class="line" id="year">{{ resultYear }}</span>
                     <span>years</span>
                 </div>
                 <div class="result">
@@ -73,7 +73,7 @@ const clickHandle = () => {
                     <span>months</span>
                 </div>
                 <div class="result">
-                    <span class="line" id="days">{{ resultYear }}</span>
+                    <span class="line" id="days">{{ resultDay }}</span>
                     <span>days</span>
                 </div>
             </section>
